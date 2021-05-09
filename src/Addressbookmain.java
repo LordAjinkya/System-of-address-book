@@ -42,4 +42,44 @@ public class Addressbookmain {
         System.out.println(firstName+" The Data Added Successfully To The  AddressBook.");
     }
 
+    //edit contacts
+    public void editContacts(){
+        int index=this.Contactslist();
+        if(index != -1){
+            System.out.println("What Do You Want To Change.\n 1.FirstName  2.LastName 3.Address  4.city  5.State  6.Zip  7.Email  8.MobileNumber");
+            int choice = sc.nextInt();
+            switch(choice)
+            {
+                case 1:
+                    this.data.get(index).setFirstName(readString("Enter new First name Code: "));
+                    break;
+                case 2:
+                    this.data.get(index).setLastName(readString("Enter new Last name Code: "));
+                    break;
+                case 3:
+                    this.data.get(index).setCity(readString("Enter new City: "));
+                    break;
+                case 4:
+                    this.data.get(index).setState(readString("Enter new State: "));
+                    break;
+                case 5:
+                    this.data.get(index).setAddress(readString("Enter new Address: "));
+                    break;
+                case 6:
+                    this.data.get(index).setZip(readString("Enter new Zip Code: "));
+                    break;
+                case 7:
+                    this.data.get(index).setEmail(readString("Enter new email : "));
+                    break;
+                case 8:
+                    this.data.get(index).setMobNo(readString("Enter new Mobile Number: "));
+                    break;
+            }
+        }
+        else{
+
+            System.out.println("No such Contact found!");
+        }
+    }
+
 }
