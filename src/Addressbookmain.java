@@ -95,5 +95,26 @@ public class Addressbookmain {
             System.out.println("No one with these details found!");
         }
     }
+    public void Menu(){
+        int choice;
+        while(true)
+        {
+            choice=sc.nextInt();
+            switch(choice) {
+                case 1: addContacts();
+                    break;
+                case 2: editContacts();
+                    break;
+                case 4: deleteContacts();
+                    break;
+                case 5: System.exit(0);
+                    break;
+            }
+        }
+    }
+    public static void main(String[] args) {
+        Addressbookmain addressBookMain=new Addressbookmain()();
+        addressBookMain.Menu();
+    }
 
 }
