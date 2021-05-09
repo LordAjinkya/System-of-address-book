@@ -81,5 +81,19 @@ public class Addressbookmain {
             System.out.println("No such Contact found!");
         }
     }
+    public void deleteContacts(){
+
+        int index=this.Contactslist();
+
+        if(index != -1){
+
+            Contacts p=this.data.remove(index);
+            System.out.println("Contacts "+p.getFirstName()+" removed successfully.");
+        }
+        else{
+
+            System.out.println("No one with these details found!");
+        }
+    }
 
 }
