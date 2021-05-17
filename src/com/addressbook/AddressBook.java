@@ -1,8 +1,9 @@
 package com.addressbook;
 
-import java.util.*;
-class Addressbook{}
-public class Addressbookmain {
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class AddressBook {
     public static ArrayList<Contacts> data = new ArrayList<Contacts>();
     static Scanner sc = new Scanner(System.in);
 
@@ -111,52 +112,4 @@ public class Addressbookmain {
         }
     }
 
-    public static void Menu() {
-        int choice;
-        while (true) {
-            System.out.println("Enter your choice:");
-            choice = sc.nextInt();
-            switch (choice) {
-                case 1:
-                    addContacts();
-                    break;
-                case 2:
-                    editContacts();
-                    break;
-                case 3:
-                    deleteContacts();
-                    break;
-                case 4:
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("wrong input!");
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-        //hashmap used for adding multiple address books
-        HashMap<String,AddressBook> a = new HashMap<String,AddressBook>();
-        System.out.println("Welcome to Address Book program");
-
-        Scanner sc=new Scanner(System.in);
-        int x=0;
-        System.out.println("Write the number of the Address Books ");
-        int z= sc.nextInt();
-        for (int i=0; i< z; i++)
-        {
-            System.out.println("Enter name of Addressbook");
-            String name = sc.next();
-            AddressBook b = new AddressBook();
-            a.put(name, b);
-        }
-        Addressbookmain addressBookMain = new Addressbookmain();
-        addressBookMain.Menu();
-
-
-
-    }
-
 }
-
