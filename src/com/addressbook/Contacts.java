@@ -1,3 +1,5 @@
+package com.addressbook;
+
 public class Contacts {
     private String firstName;
     private String lastName;
@@ -111,3 +113,4 @@ public class Contacts {
         System.out.println("Address => "+ this.getEmail());
     }
 }
+
