@@ -110,6 +110,20 @@ public class Addressbookmain {
             System.out.println("No one with these details found!");
         }
     }
+    //check duplicate entry
+    public void duplicateCheck(String first)
+    {
+        for (int k = 0; k < data.size(); k++)
+        {
+            String contactName = data.get(k).getFirstName();
+            if (first.equals(contactName))
+                System.out.println("This Person is Already Present");
+            else {
+                System.out.println("You can Add this Person");
+                break;
+            }
+        }
+    }
 
     public static void Menu() {
         int choice;

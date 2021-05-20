@@ -1,6 +1,9 @@
 package com.addressbook;
 
 public class Contacts {
+    public boolean equals(Contacts check){
+        return (check.firstName.equalsIgnoreCase(this.firstName)&&check.lastName.equalsIgnoreCase(this.lastName));
+    }
     private String firstName;
     private String lastName;
     private String address;
