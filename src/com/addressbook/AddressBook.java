@@ -99,18 +99,7 @@ public class AddressBook {
         }
     }
 
-    public static void deleteContacts() {
 
-        int index = Contactslist();
 
-        if (index != -1) {
-
-            Contacts p = data.remove(index);
-            System.out.println("Contacts " + p.getFirstName() + " removed successfully.");
-        } else {
-
-            System.out.println("No one with these details found!");
-        }
-    }
 
 }

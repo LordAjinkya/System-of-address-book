@@ -124,6 +124,32 @@ public class Addressbookmain {
             }
         }
     }
+    //search person by state
+    public static void searchPersonByState()
+    {
+        System.out.println("Enter the state name to search Person by state name");
+        String userState = sc.nextLine();
+        Dictionary Statewisedict = new Hashtable();
+        data.stream().filter(map -> map.getState().contains(userState)).forEach(data -> Statewisedict.put(data.getFirstName(),userState));
+        System.out.println("State Name: " + userState);
+        for (Enumeration i = Statewisedict.keys(); i.hasMoreElements();)
+        {
+            System.out.println("Name : " + i.nextElement());
+        }
+    }
+    //search person by city
+    public static void searchPersonByCity()
+    {
+        System.out.println("Enter City name to search Person by city name");
+        String userCity = sc.nextLine();
+        Dictionary Citywisedict = new Hashtable();
+        data.stream().filter(map -> map.getCity().contains(userCity)).forEach(data -> Citywisedict.put(data.getFirstName(),userCity));
+        System.out.println("City Name: " + userCity);
+        for (Enumeration i = Citywisedict.keys(); i.hasMoreElements();)
+        {
+            System.out.println("Name : " + i.nextElement());
+        }
+    }
 
     public static void Menu() {
         int choice;
@@ -141,15 +167,22 @@ public class Addressbookmain {
                     deleteContacts();
                     break;
                 case 4:
+                    searchPersonByState();
+                    break;
+                case 5:
+                    searchPersonByCity();
+                    break;
+                case 6:
                     System.exit(0);
                     break;
+
                 default:
                     System.out.println("wrong input!");
             }
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         //hashmap used for adding multiple address books
         HashMap<String,AddressBook> a = new HashMap<String,AddressBook>();
         System.out.println("Welcome to Address Book program");
