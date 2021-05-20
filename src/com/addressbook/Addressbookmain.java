@@ -157,6 +157,10 @@ public class Addressbookmain {
         System.out.println(data.stream().collect(Collectors.groupingBy((Contacts C) -> C.getCity())));
         System.out.println((data.stream().collect(Collectors.groupingBy((Contacts C) -> C.getCity(),Collectors.counting()))));
     }
+    //search by state
+    public void countByState(){
+        System.out.println(data.stream().collect(Collectors.groupingBy((Contacts C) ->C.getState(),Collectors.counting())));
+    }
 
     public static void Menu() {
         int choice;
