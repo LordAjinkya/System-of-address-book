@@ -1,6 +1,8 @@
 package com.addressbook;
 
 import java.util.*;
+import java.util.stream.Collectors;
+
 class Addressbook{}
 public class Addressbookmain {
     public static ArrayList<Contacts> data = new ArrayList<Contacts>();
@@ -150,6 +152,11 @@ public class Addressbookmain {
             System.out.println("Name : " + i.nextElement());
         }
     }
+    //count persons by city
+    public static void countByCity(){
+        System.out.println(data.stream().collect(Collectors.groupingBy((Contacts C) -> C.getCity())));
+        System.out.println((data.stream().collect(Collectors.groupingBy((Contacts C) -> C.getCity(),Collectors.counting()))));
+    }
 
     public static void Menu() {
         int choice;
@@ -173,6 +180,9 @@ public class Addressbookmain {
                     searchPersonByCity();
                     break;
                 case 6:
+                    countByCity();
+                    break;
+                case 7:
                     System.exit(0);
                     break;
 
