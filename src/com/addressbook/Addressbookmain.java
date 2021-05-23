@@ -158,8 +158,15 @@ public class Addressbookmain {
         System.out.println((data.stream().collect(Collectors.groupingBy((Contacts C) -> C.getCity(),Collectors.counting()))));
     }
     //search by state
-    public void countByState(){
+    public static void countByState(){
         System.out.println(data.stream().collect(Collectors.groupingBy((Contacts C) ->C.getState(),Collectors.counting())));
+    }
+
+    //sort the persons in address book alphabetically
+    public static void sortPerson()
+    {
+        System.out.println("------Names are sorted alphabetical order----");
+        data.stream().sorted(Comparator.comparing(contactInfo -> contactInfo.getFirstName())).forEach(contactInfo -> System.out.println(contactInfo));
     }
 
     public static void Menu() {
@@ -187,6 +194,13 @@ public class Addressbookmain {
                     countByCity();
                     break;
                 case 7:
+                    countByState();
+                    break;
+                case 8:
+                    sortPerson();
+                    break;
+
+                case 9:
                     System.exit(0);
                     break;
 
