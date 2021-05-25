@@ -1,10 +1,18 @@
 package com.addressbook;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
-class Addressbook{}
+
 public class Addressbookmain {
+    public static final String ADDRESS_BOOK_FILES="C:\\Users\\ajink\\IdeaProjects\\Addressbooksystem";
     public static ArrayList<Contacts> data = new ArrayList<Contacts>();
     static Scanner sc = new Scanner(System.in);
 
@@ -168,6 +176,45 @@ public class Addressbookmain {
         System.out.println("------Names are sorted alphabetical order----");
         data.stream().sorted(Comparator.comparing(contactInfo -> contactInfo.getFirstName())).forEach(contactInfo -> System.out.println(contactInfo));
     }
+    //create new file to read and write
+    public static void CreateFile(){
+        File myfile =new File("Person_details.txt");
+        try {
+            myfile.createNewFile();
+        } catch (IOException e) {
+            System.out.println("Unable to create the file");
+            e.printStackTrace();
+        }
+    }
+
+
+///write data in the file
+    public static void writeData() {
+        try {
+            FileWriter filewriter = new FileWriter("Person_details.txt");//filewriter method used to write
+            filewriter.write("Name:Ajinkya Narale \nAddress:Dhantoli \nCity:Katol \nState:MH \nZip:441302 \nPhoneNum:9172695674 \nEmail:ajinkyanarale007@gmail.com");
+            filewriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+        /////Read data from the file
+   public static void readData() {
+       File myfile= new File("AddressBookFiles.txt");
+       try{
+           Scanner sc = new Scanner(myfile);
+           while(sc.hasNextLine()){
+               String line= sc.nextLine();
+               System.out.println(line);
+           }
+           sc.close();
+
+       }catch (FileNotFoundException e) {
+           e.printStackTrace();
+       }
+   }
+
 
     public static void Menu() {
         int choice;
@@ -199,10 +246,20 @@ public class Addressbookmain {
                 case 8:
                     sortPerson();
                     break;
-
                 case 9:
+                    CreateFile();
+                    break;
+                case 10:
+                    writeData();
+                    break;
+                case 11:
+                    readData();
+                    break;
+
+                case 12:
                     System.exit(0);
                     break;
+
 
                 default:
                     System.out.println("wrong input!");
